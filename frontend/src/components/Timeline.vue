@@ -10,6 +10,9 @@
 
 <script>
 import Tweet from './Tweet'
+import Vue from 'vue'
+import Resource from 'vue-resource'
+Vue.use(Resource)
 
 export default {
   components: { Tweet },
