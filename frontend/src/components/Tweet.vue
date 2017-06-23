@@ -1,6 +1,6 @@
 <template>
   <div class="tweet">
-    {{ tweet.author }} : {{ tweet.content }}
+    {{ tweet.auteur }} : {{ tweet.contenu }}
   </div>
 </template>
 
