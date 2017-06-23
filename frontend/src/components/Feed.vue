@@ -1,10 +1,15 @@
 <template>
   <div class="feed">
-    <ul>
-      <li v-for="tweet in tweets">
-        <tweet :tweet="tweet"/>
-      </li>
-    </ul>
+    <div v-if="loading === true">
+      <h2>Chargement des tweets</h2>
+    </div>
+    <div v-else>
+      <ul>
+        <li v-for="tweet in tweets">
+          <tweet :tweet="tweet"/>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -12,7 +17,7 @@
 import Tweet from './Tweet'
 export default {
   name: 'feed',
-  props: ['tweets'],
+  props: ['tweets', 'loading'],
   components: { Tweet }
 }
 </script>
