@@ -11,9 +11,9 @@
       <ul>
         <li class="button">
           <icon name="reply"/>
-          <icon name="retweet"/>
+          <icon name="retweet"/> {{tweet.retweeters.length}}
           <icon name="heart"/>
-          <icon name="envelope"/>
+          <icon name="envelope"/> 
         </li>
       </ul>
     </div>
