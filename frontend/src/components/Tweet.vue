@@ -27,7 +27,7 @@ import moment from 'moment'
 
 export default {
   name: 'hello',
-  props: ['tweet'],
+  props: ['tweet', 'utilisateur'],
   components: { Icon },
   created () {
     moment.locale('fr')
@@ -38,7 +38,7 @@ export default {
     },
     retweet: function (tweetId) {
       var formData = new FormData()
-      formData.append('utilisateur', 'mulan')
+      formData.append('utilisateur', this.utilisateur)
       formData.append('tweet', tweetId)
       this.$http.post('http://localhost:8080/retweet', formData, {responseType: 'text'}).then(response => {
         this.$emit('retweeted', tweetId)
