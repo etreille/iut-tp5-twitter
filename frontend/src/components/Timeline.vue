@@ -1,6 +1,6 @@
 <template>
   <div class="timeline">
-    <feed :tweets="tweets" :loading="loading"/>
+    <feed :tweets="tweets" :loading="loading" @retweeted="retweet"/>
   </div>
 </template>
 
@@ -34,6 +34,13 @@ export default {
       }, response => {
         // error callback
       })
+    },
+    retweet: function (tweetId) {
+      for (var i = 0; i < this.tweets.length; i++) {
+        if (this.tweets[i].id === tweetId) {
+          this.tweets[i].retweeters.push({handle: 'bob'})
+        }
+      }
     }
   }
 }

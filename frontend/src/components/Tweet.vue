@@ -11,9 +11,9 @@
       <ul>
         <li class="button">
           <icon name="reply"/>
-          <icon name="retweet"/> {{tweet.retweeters.length}}
+          <a @click="retweet(tweet.id)"><icon name="retweet"/></a> {{tweet.retweeters.length}}
           <icon name="heart"/>
-          <icon name="envelope"/> 
+          <icon name="envelope"/>
         </li>
       </ul>
     </div>
@@ -35,6 +35,14 @@ export default {
   methods: {
     moment: function (date) {
       return moment(date)
+    },
+    retweet: function (tweetId) {
+      var formData = new FormData()
+      formData.append('utilisateur', 'mulan')
+      formData.append('tweet', tweetId)
+      this.$http.post('http://localhost:8080/retweet', formData, {responseType: 'text'}).then(response => {
+        this.$emit('retweeted', tweetId)
+      })
     }
   }
 }
